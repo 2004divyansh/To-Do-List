@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vanilla To-Do List</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon-192.png">
+  <meta name="theme-color" content="#8a2be2">
+</head>
+<body>
+  <!-- 🌄 Background Video -->
+  <video autoplay muted loop id="bg-video">
+    <source src="To-Do-List-Bg.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- 📝 App Content -->
+  <div class="container">
+    <div class="header">
+      <h1>To-Do List</h1>
+      <button id="theme-toggle">🌙</button>
+    </div>
+    <div class="input-group">
+      <input type="text" id="task-input" placeholder="Add a new task..." />
+      <button id="add-btn">Add</button>
+    </div>
+    <ul id="task-list"></ul>
+  </div>
+
+  <script src="script.js">
+     if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js")
+        .then(reg => console.log("SW Registered"))
+        .catch(err => console.error("SW Registration Failed", err));
+    }
+  </script>
+</body>
+</html>
+
